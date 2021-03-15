@@ -10,7 +10,15 @@ int main() {
 
   cout << "Ok" << endl;
 
-  // map.data[2] = true;
+  auto ref = map[2];
+  ref = true;
+
+  cout << map << endl;
+
+  ref = false;
+
+  cout << map << endl;
+
 
   // for (auto bit : map.data) {
   //   cout << bit << endl;
@@ -19,13 +27,6 @@ int main() {
   //   cout << map[i] << endl;
   // }
 
-  cout << map << endl;
-
-  bool meme = true;
-  BitRef ref(&meme);
-  ref = false;
-
-  cout << meme << endl;
 
   return 0;
 }
