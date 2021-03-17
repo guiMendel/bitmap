@@ -38,6 +38,12 @@ int main() {
 
   cout << "Repeat:   " << (3 * map) << endl;
 
+  auto bit = map[0];
+  bit = true;
+  map.at(0) = false;
+  cout << "Final: " << map << endl;
+  cout << "Bit: " << bit << endl;
+
   // for (auto bit : map.data) {
   //   cout << bit << endl;
   // }

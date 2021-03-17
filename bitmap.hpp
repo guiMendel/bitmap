@@ -7,22 +7,26 @@
 
 class BitRef {
 public:
-  BitRef() {}
+  // Musn't exist without a referenced value
+  BitRef() = delete;
 
-  // Initialization using pointer to bool
-  BitRef(std::_Bit_iterator initial) : value(initial) {}
+  // Initialization using bit iterator
+  BitRef(std::_Bit_iterator initial) : value(*initial) {}
 
   // Copy constructor
-  BitRef(const BitRef& copy) : BitRef(copy.value) {}
+  BitRef(const BitRef& copy) : value(copy.value) {}
 
   // Assignment
-  bool operator=(const bool new_value) { return *value = new_value; }
+  bool operator=(const bool new_value) { return value = new_value; }
+
+  // Destructor
+  ~BitRef() = default;
 
   // Conversion to bool
-  operator bool() const { return *value; }
+  operator bool() const { return value; }
 
 private:
-  std::_Bit_iterator value;
+  std::_Bit_iterator::reference value;
 };
 
 class Bitmap {
