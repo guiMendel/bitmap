@@ -38,9 +38,9 @@ int main() {
 
   cout << "Repeat:   " << (3 * map) << endl;
 
-  auto bit = map[0];
+  auto bit = map[1];
   bit = true;
-  map.at(0) = false;
+  // map.at(1) = false;
   cout << "Final: " << map << endl;
   cout << "Bit: " << bit << endl;
 
