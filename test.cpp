@@ -40,7 +40,7 @@ int main() {
 
   auto bit = map[1];
   bit = true;
-  // map.at(1) = false;
+  map.at(1) = false;
   cout << "Final: " << map << endl;
   cout << "Bit: " << bit << endl;
 

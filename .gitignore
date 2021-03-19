@@ -1,3 +1,4 @@
 *.out
 .vscode
 valgrind-out.txt
+*.tar.xz

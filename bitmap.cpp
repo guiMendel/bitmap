@@ -54,7 +54,7 @@ Bitmap Bitmap::operator*(int n) const {
   size_type map_size = size() * sizeof(bool);
 
   // Pastes the bitmap in n times
-  for (size_type i = 0; i < n; i++) {
+  for (size_type i = 0; i < (size_type)n; i++) {
     result.bitmap.insert(
       result.bitmap.begin() + map_size * i,
       bitmap.begin(),
