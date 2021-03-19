@@ -2,3 +2,4 @@
 .vscode
 valgrind-out.txt
 *.tar.xz
+tests/

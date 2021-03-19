@@ -62,6 +62,8 @@ public:
   /// Defines the size_type for the bits
   typedef std::vector<bool>::size_type size_type;
 
+  friend std::ostream& operator<<(std::ostream& output, const Bitmap& map);
+
   /**
    * Constructs a new bitmap with the provided length
    *

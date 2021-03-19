@@ -2,8 +2,8 @@
 #include <cstring>
 
 std::ostream& operator<<(std::ostream& output, const Bitmap& map) {
-  for (Bitmap::size_type i = 0; i < map.size(); i++) {
-    output << map[i];
+  for (auto it = map.bitmap.rbegin(); it != map.bitmap.rend(); it++) {
+    output << *it;
   }
 
   return output;
