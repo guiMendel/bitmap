@@ -1,5 +1,6 @@
 #include "bitmap.hpp"
 #include <cstring>
+#include <algorithm>
 
 std::ostream& operator<<(std::ostream& output, const Bitmap& map) {
   for (auto it = map.bitmap.rbegin(); it != map.bitmap.rend(); it++) {
@@ -39,9 +40,18 @@ Bitmap Bitmap::operate(const Bitmap& map1, const Bitmap& map2, bool operation(bo
   Bitmap result(length);
 
   // Applies operation on each pair and fills up the resulting array
-  for (Bitmap::size_type i = 0; i != length; i++) {
-    result[i] = operation(map1[i], map2[i]);
-  }
+  std::transform(
+    // Begin first sequence here
+    map1.bitmap.begin(),
+    // End first sequence here
+    map1.bitmap.end(),
+    // Begin second sequence here
+    map2.bitmap.begin(),
+    // Store results here
+    result.bitmap.begin(),
+    // Perform this operation
+    operation
+  );
 
   return result;
 }
